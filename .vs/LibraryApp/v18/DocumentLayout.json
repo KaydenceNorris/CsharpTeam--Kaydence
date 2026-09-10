@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Kayno\\source\\repos\\Devops\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C767672B-12AB-41F4-841F-43E9BFCF3656}|LibraryApp\\LibraryApp.csproj|c:\\users\\kayno\\source\\repos\\devops\\libraryapp\\libraryapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C767672B-12AB-41F4-841F-43E9BFCF3656}|LibraryApp\\LibraryApp.csproj|solutionrelative:libraryapp\\libraryapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C767672B-12AB-41F4-841F-43E9BFCF3656}|LibraryApp\\LibraryApp.csproj|c:\\users\\kayno\\source\\repos\\devops\\libraryapp\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C767672B-12AB-41F4-841F-43E9BFCF3656}|LibraryApp\\LibraryApp.csproj|solutionrelative:libraryapp\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Book.cs",
+              "DocumentMoniker": "C:\\Users\\Kayno\\source\\repos\\Devops\\LibraryApp\\Book.cs",
+              "RelativeDocumentMoniker": "LibraryApp\\Book.cs",
+              "ToolTip": "C:\\Users\\Kayno\\source\\repos\\Devops\\LibraryApp\\Book.cs",
+              "RelativeToolTip": "LibraryApp\\Book.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-10T16:57:17.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LibraryApp",
+              "DocumentMoniker": "C:\\Users\\Kayno\\source\\repos\\Devops\\LibraryApp\\LibraryApp.csproj",
+              "RelativeDocumentMoniker": "LibraryApp\\LibraryApp.csproj",
+              "ToolTip": "C:\\Users\\Kayno\\source\\repos\\Devops\\LibraryApp\\LibraryApp.csproj",
+              "RelativeToolTip": "LibraryApp\\LibraryApp.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-09-10T16:57:13.164Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

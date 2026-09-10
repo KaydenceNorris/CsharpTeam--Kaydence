@@ -1,4 +1,5 @@
 # LibraryApp — .NET Starter Project
+## Kaydence Norris (C#) 
 
 This is your starting point for the team project. It's a small console app that
 models a library book checkout system, with a test project already wired up
