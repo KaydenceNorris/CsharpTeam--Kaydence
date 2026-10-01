@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yzrzt+F9M2Q=",
+  "dgSpecHash": "lK/l7JWRwpI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kayno\\source\\repos\\Devops\\LibraryApp.Tests\\LibraryApp.Tests.csproj",
+  "projectFilePath": "C:\\Users\\Kayno\\source\\repos\\CsharpTeam--Kaydence\\LibraryApp.Tests\\LibraryApp.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kayno\\.nuget\\packages\\microsoft.applicationinsights\\2.22.0\\microsoft.applicationinsights.2.22.0.nupkg.sha512",
     "C:\\Users\\Kayno\\.nuget\\packages\\microsoft.codecoverage\\17.11.1\\microsoft.codecoverage.17.11.1.nupkg.sha512",

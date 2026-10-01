@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kayno\\source\\repos\\Devops\\LibraryApp.Tests\\LibraryApp.Tests.csproj": {}
+    "C:\\Users\\Kayno\\source\\repos\\CsharpTeam--Kaydence\\LibraryApp.Tests\\LibraryApp.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kayno\\source\\repos\\Devops\\LibraryApp.Tests\\LibraryApp.Tests.csproj": {
+    "C:\\Users\\Kayno\\source\\repos\\CsharpTeam--Kaydence\\LibraryApp.Tests\\LibraryApp.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kayno\\source\\repos\\Devops\\LibraryApp.Tests\\LibraryApp.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\Kayno\\source\\repos\\CsharpTeam--Kaydence\\LibraryApp.Tests\\LibraryApp.Tests.csproj",
         "projectName": "LibraryApp.Tests",
-        "projectPath": "C:\\Users\\Kayno\\source\\repos\\Devops\\LibraryApp.Tests\\LibraryApp.Tests.csproj",
+        "projectPath": "C:\\Users\\Kayno\\source\\repos\\CsharpTeam--Kaydence\\LibraryApp.Tests\\LibraryApp.Tests.csproj",
         "packagesPath": "C:\\Users\\Kayno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kayno\\source\\repos\\Devops\\LibraryApp.Tests\\obj\\",
+        "outputPath": "C:\\Users\\Kayno\\source\\repos\\CsharpTeam--Kaydence\\LibraryApp.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,8 +33,8 @@
             "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Kayno\\source\\repos\\Devops\\LibraryApp\\LibraryApp.csproj": {
-                "projectPath": "C:\\Users\\Kayno\\source\\repos\\Devops\\LibraryApp\\LibraryApp.csproj"
+              "C:\\Users\\Kayno\\source\\repos\\CsharpTeam--Kaydence\\LibraryApp\\LibraryApp.csproj": {
+                "projectPath": "C:\\Users\\Kayno\\source\\repos\\CsharpTeam--Kaydence\\LibraryApp\\LibraryApp.csproj"
               }
             }
           }
@@ -86,18 +85,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Kayno\\source\\repos\\Devops\\LibraryApp\\LibraryApp.csproj": {
+    "C:\\Users\\Kayno\\source\\repos\\CsharpTeam--Kaydence\\LibraryApp\\LibraryApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kayno\\source\\repos\\Devops\\LibraryApp\\LibraryApp.csproj",
+        "projectUniqueName": "C:\\Users\\Kayno\\source\\repos\\CsharpTeam--Kaydence\\LibraryApp\\LibraryApp.csproj",
         "projectName": "LibraryApp",
-        "projectPath": "C:\\Users\\Kayno\\source\\repos\\Devops\\LibraryApp\\LibraryApp.csproj",
+        "projectPath": "C:\\Users\\Kayno\\source\\repos\\CsharpTeam--Kaydence\\LibraryApp\\LibraryApp.csproj",
         "packagesPath": "C:\\Users\\Kayno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kayno\\source\\repos\\Devops\\LibraryApp\\obj\\",
+        "outputPath": "C:\\Users\\Kayno\\source\\repos\\CsharpTeam--Kaydence\\LibraryApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -112,7 +111,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -154,7 +152,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
