@@ -11,6 +11,11 @@ public class Book
     public string Isbn { get; }
     public int TotalCopies { get; }
     public int AvailableCopies { get; private set; }
+    public DateTime CheckoutDate { get; set; }
+    public DateTime DueDate { get; set; }
+    public DateTime returnedDate { get; set; }
+    // true or fasle is the book over due
+    public bool isOverdue { get; set; }
 
     public Book(string title, string author, string isbn, int totalCopies)
     {
@@ -22,6 +27,11 @@ public class Book
             throw new ArgumentException("ISBN cannot be empty.", nameof(isbn));
         if (totalCopies < 0)
             throw new ArgumentException("Total copies cannot be negative.", nameof(totalCopies));
+
+        // sets the checkout date to today
+        CheckoutDate = System.DateTime.Today;
+        // sets the duedate to 2 weeks in the future
+        DueDate = System.DateTime.Today.AddDays(14);
 
         Title = title;
         Author = author;
@@ -38,6 +48,24 @@ public class Book
             throw new InvalidOperationException($"No available copies of '{Title}' to check out.");
 
         AvailableCopies--;
+        CalculateOverDue();
+
+        if (isOverdue)
+        {
+            Console.WriteLine("This book is overdue");
+        }
+    }
+    public void CalculateOverDue()
+    {
+        Random rnd = new Random();
+        int daysAdded = rnd.Next(0, 18);
+
+        returnedDate = CheckoutDate.AddDays(daysAdded);
+
+        if (returnedDate > DueDate)
+        {
+            isOverdue = true;
+        }
     }
 
     public void Return()
