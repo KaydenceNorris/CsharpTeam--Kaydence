@@ -53,7 +53,7 @@ public class Catalog
         if (book is null)
             throw new InvalidOperationException($"No book found with ISBN '{isbn}'.");
 
-        book.CheckOut();
+        //book.CheckOut();
     }
 
     public void ReturnBook(string isbn)

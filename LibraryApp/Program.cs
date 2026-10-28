@@ -6,6 +6,8 @@ public class Program
     {
         try
         {
+            List<Book> testBookList = new List<Book>();
+            Member testMember = new Member("Test",1, testBookList);
             var catalog = new Catalog();
 
             catalog.AddBook(new Book("The Pragmatic Programmer", "David Thomas", "9780135957059", 3));
@@ -20,7 +22,7 @@ public class Program
             Console.WriteLine();
             while (true)
             {
-                Console.WriteLine("Please choose an option:\n1. Checkout book\n2.Return Book\n3. Exit");
+                Console.WriteLine("Please choose an option:\n1. Checkout book\n2.Return Book \n4. Exit");
                 string userChoice = Console.ReadLine() ?? string.Empty;
 
                 if (userChoice == "1")
@@ -36,7 +38,7 @@ public class Program
                     {
                         if (bookTitle == book.Title)
                         {
-                            book.CheckOut();
+                            book.CheckOut(testMember);
                             Console.WriteLine($"Book has been checked out: {book.AvailableCopies} copies left");
                         }
                     }

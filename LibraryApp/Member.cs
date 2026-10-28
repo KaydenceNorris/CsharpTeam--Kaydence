@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryApp
 {
-    internal class Member
+    public class Member
     {
         // Private variables
         private string _name ;
@@ -15,12 +15,12 @@ namespace LibraryApp
         private List<Book> _checkedOutBooks;
 
         // Public variables
-        public required string Name { get { return _name; } set { _name = value; } }
-        public required int MemberId { get { return _memberId; } set { _memberId = value; } }
-        public required List<Book> CheckedOutBooks { get { return _checkedOutBooks; } set { _checkedOutBooks = value; } }
+        public  string Name { get { return _name; } set { _name = value; } }
+        public  int MemberId { get { return _memberId; } set { _memberId = value; } }
+        public List<Book> CheckedOutBooks { get { return _checkedOutBooks; } set { _checkedOutBooks = value; } }
 
         // Constructor
-        public Member(string name, int memberId)
+        public Member(string name, int memberId, List<Book> checkedOutBooks)
         {
             try
             // Address Concern 1: Could you put this in a try catch block so that the program doesn't stop? Or have the constructor be automated so that a name and ID can't be blank.
@@ -35,6 +35,7 @@ namespace LibraryApp
                 // Assigning constructor values to public variables
                 Name = name;
                 MemberId = memberId;
+                CheckedOutBooks = checkedOutBooks;
             }
 
             catch (ArgumentNullException ex)
@@ -61,7 +62,7 @@ namespace LibraryApp
             // Address Concern 2: This is very similar to the checkout method in Book. Could you utilize that method instead of making a new one?
             // While they have similar code, the outcome of each is fundamentally different. I could run CheckOut for the book involved instead.
             // Naming them the same and having them appear functionally similar adheres to the OOP principle of polymorphism
-            book.CheckOut();
+            //book.CheckOut();
         }
     }
 }

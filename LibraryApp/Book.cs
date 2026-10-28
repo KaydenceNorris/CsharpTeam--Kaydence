@@ -14,7 +14,7 @@ public class Book
     public DateTime CheckoutDate { get; set; }
     public DateTime DueDate { get; set; }
     public DateTime returnedDate { get; set; }
-    // true or fasle is the book over due
+    // true or falsee is the book over due
     public bool isOverdue { get; set; }
 
     public Book(string title, string author, string isbn, int totalCopies)
@@ -42,27 +42,26 @@ public class Book
 
     public bool IsAvailable => AvailableCopies > 0;
 
-    public void CheckOut()
+    public void CheckOut(Member member)
     {
+        // Adds book to memebrs list of checked out books
+        member.CheckedOutBooks.Add(this);
         if (!IsAvailable)
             throw new InvalidOperationException($"No available copies of '{Title}' to check out.");
 
         AvailableCopies--;
-        CalculateOverDue();
+        WriteCSV(member);
 
-        if (isOverdue)
-        {
-            Console.WriteLine("This book is overdue");
-        }
     }
     public void CalculateOverDue()
     {
-        Random rnd = new Random();
-        int daysAdded = rnd.Next(0, 18);
+        string[] line = File.ReadAllLines("CheckoutData.csv");
+        string[] info = line[0].Split(',');
+        string dueDateString = info[3].Trim();
+        DateTime dueDate = DateTime.Parse(dueDateString);
+        returnedDate = System.DateTime.Now;
 
-        returnedDate = CheckoutDate.AddDays(daysAdded);
-
-        if (returnedDate > DueDate)
+        if ( returnedDate > dueDate)
         {
             isOverdue = true;
         }
@@ -74,5 +73,12 @@ public class Book
             throw new InvalidOperationException($"All copies of '{Title}' are already returned.");
 
         AvailableCopies++;
+        CalculateOverDue();
+    }
+    public void WriteCSV(Member member)
+    {
+        // Writes the memeber info connecting to the book they cheked out to a csv file
+        string data = $"{member.MemberId},{member.Name},{this.CheckoutDate}, {this.DueDate}";
+        File.AppendAllText("CheckoutData.csv", data );
     }
 }
