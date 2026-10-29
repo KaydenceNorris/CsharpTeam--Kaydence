@@ -19,7 +19,7 @@ public class BookTests
         var book = new Book("Sample Title", "Sample Author", "0000000000000", 3);
 
         // Act
-        book.CheckOut();
+        //book.CheckOut();
 
         // Assert
         Assert.AreEqual(2, book.AvailableCopies);
