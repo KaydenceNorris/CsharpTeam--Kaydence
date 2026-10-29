@@ -6,8 +6,11 @@ public class Program
     {
         try
         {
+            int memebrId = 1;
             List<Book> testBookList = new List<Book>();
-            Member testMember = new Member("Test",1, testBookList);
+            Member testMember = new Member("Test",memebrId,testBookList);
+           
+            ;
             var catalog = new Catalog();
 
             catalog.AddBook(new Book("The Pragmatic Programmer", "David Thomas", "9780135957059", 3));

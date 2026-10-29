@@ -10,14 +10,14 @@ namespace LibraryApp
     public class Member
     {
         // Private variables
-        private string _name ;
-        private int _memberId;
-        private List<Book> _checkedOutBooks;
+        private string? _name;
+        private int? _memberId;
+        private List<Book>? _checkedOutBooks;
 
         // Public variables
-        public  string Name { get { return _name; } set { _name = value; } }
-        public  int MemberId { get { return _memberId; } set { _memberId = value; } }
-        public List<Book> CheckedOutBooks { get { return _checkedOutBooks; } set { _checkedOutBooks = value; } }
+        public string? Name { get { return _name; } set { _name = value; } }
+        public int? MemberId { get { return _memberId; } set { _memberId = value; } }
+        public List<Book>? CheckedOutBooks { get { return _checkedOutBooks; } set { _checkedOutBooks = value; } }
 
         // Constructor
         public Member(string name, int memberId, List<Book> checkedOutBooks)
@@ -33,9 +33,9 @@ namespace LibraryApp
                     throw new ArgumentException("MemberId cannot be empty", nameof(memberId));
 
                 // Assigning constructor values to public variables
-                Name = name;
-                MemberId = memberId;
-                CheckedOutBooks = checkedOutBooks;
+                _name = name;
+                _memberId = memberId;
+                _checkedOutBooks = checkedOutBooks;
             }
 
             catch (ArgumentNullException ex)
