@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Kayno\\source\\repos\\CsharpTeam--Kaydence\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C767672B-12AB-41F4-841F-43E9BFCF3656}|LibraryApp\\LibraryApp.csproj|c:\\users\\kayno\\source\\repos\\csharpteam--kaydence\\libraryapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C767672B-12AB-41F4-841F-43E9BFCF3656}|LibraryApp\\LibraryApp.csproj|solutionrelative:libraryapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C767672B-12AB-41F4-841F-43E9BFCF3656}|LibraryApp\\LibraryApp.csproj|c:\\users\\kayno\\source\\repos\\csharpteam--kaydence\\libraryapp\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C767672B-12AB-41F4-841F-43E9BFCF3656}|LibraryApp\\LibraryApp.csproj|solutionrelative:libraryapp\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C767672B-12AB-41F4-841F-43E9BFCF3656}|LibraryApp\\LibraryApp.csproj|c:\\users\\kayno\\source\\repos\\csharpteam--kaydence\\libraryapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C767672B-12AB-41F4-841F-43E9BFCF3656}|LibraryApp\\LibraryApp.csproj|solutionrelative:libraryapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C767672B-12AB-41F4-841F-43E9BFCF3656}|LibraryApp\\LibraryApp.csproj|c:\\users\\kayno\\source\\repos\\csharpteam--kaydence\\libraryapp\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -65,33 +65,33 @@
               "RelativeDocumentMoniker": "LibraryApp\\Book.cs",
               "ToolTip": "C:\\Users\\Kayno\\source\\repos\\CsharpTeam--Kaydence\\LibraryApp\\Book.cs",
               "RelativeToolTip": "LibraryApp\\Book.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-10T16:57:17.722Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Member.cs",
               "DocumentMoniker": "C:\\Users\\Kayno\\source\\repos\\CsharpTeam--Kaydence\\LibraryApp\\Member.cs",
               "RelativeDocumentMoniker": "LibraryApp\\Member.cs",
               "ToolTip": "C:\\Users\\Kayno\\source\\repos\\CsharpTeam--Kaydence\\LibraryApp\\Member.cs",
               "RelativeToolTip": "LibraryApp\\Member.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAgwCMAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-14T17:20:42.608Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Kayno\\source\\repos\\CsharpTeam--Kaydence\\LibraryApp\\Program.cs",
               "RelativeDocumentMoniker": "LibraryApp\\Program.cs",
               "ToolTip": "C:\\Users\\Kayno\\source\\repos\\CsharpTeam--Kaydence\\LibraryApp\\Program.cs",
               "RelativeToolTip": "LibraryApp\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwAoAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-14T17:11:56.274Z",
               "EditorCaption": ""

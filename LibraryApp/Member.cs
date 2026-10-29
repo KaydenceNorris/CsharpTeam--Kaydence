@@ -1,21 +1,23 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace LibraryApp
 {
     public class Member
     {
         // Private variables
-        private string? _name;
-        private int? _memberId;
-        private List<Book>? _checkedOutBooks;
+        public string _name ="";
+        public int _memberId = 0;
+        public List<Book> _checkedOutBooks = new List<Book>();
 
         // Public variables
-        public string? Name { get { return _name; } set { _name = value; } }
-        public int? MemberId { get { return _memberId; } set { _memberId = value; } }
-        public List<Book>? CheckedOutBooks { get { return _checkedOutBooks; } set { _checkedOutBooks = value; } }
+        //public required string Name { get { return _name; } set { _name = value; } }
+        //public required int MemberId { get { return _memberId; } set { _memberId = value; } }
+        //public required List<Book> CheckedOutBooks { get { return _checkedOutBooks; } set { _checkedOutBooks = value; } }
 
         // Constructor
+        [SetsRequiredMembers]
         public Member(string name, int memberId, List<Book> checkedOutBooks)
         {
             try
@@ -29,9 +31,10 @@ namespace LibraryApp
                     throw new ArgumentException("MemberId cannot be empty", nameof(memberId));
 
                 // Assigning constructor values to public variables
-                _name = name;
+                
+                _name = name ?? throw new ArgumentNullException(nameof(name));
                 _memberId = memberId;
-                _checkedOutBooks = checkedOutBooks;
+                _checkedOutBooks = checkedOutBooks ?? throw new ArgumentNullException(nameof(name));
             }
 
             catch (ArgumentNullException ex)
@@ -50,11 +53,11 @@ namespace LibraryApp
             // Invalid checkout handling
             if (!book.IsAvailable)
                 throw new InvalidOperationException($"No available copies of '{book.Title}' to check out.");
-            if (CheckedOutBooks.Count > 5)
-                throw new InvalidOperationException($"Member '{Name}' has checked out the max amount of books");
+            if (_checkedOutBooks.Count > 5)
+                throw new InvalidOperationException($"Member '{_name}' has checked out the max amount of books");
 
             // Add book to List
-            CheckedOutBooks.Add(book);
+            _checkedOutBooks.Add(book);
             // Address Concern 2: This is very similar to the checkout method in Book. Could you utilize that method instead of making a new one?
             // While they have similar code, the outcome of each is fundamentally different. I could run CheckOut for the book involved instead.
             // Naming them the same and having them appear functionally similar adheres to the OOP principle of polymorphism

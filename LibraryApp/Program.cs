@@ -2,7 +2,7 @@ namespace LibraryApp;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static void Main(string[] _args_1)
     {
         try
         {

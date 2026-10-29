@@ -45,7 +45,7 @@ public class Book
     public void CheckOut(Member member)
     {
         // Adds book to memebrs list of checked out books
-        member.CheckedOutBooks.Add(this);
+        member._checkedOutBooks.Add(this);
         if (!IsAvailable)
             throw new InvalidOperationException($"No available copies of '{Title}' to check out.");
 
@@ -78,7 +78,7 @@ public class Book
     public void WriteCSV(Member member)
     {
         // Writes the memeber info connecting to the book they cheked out to a csv file
-        string data = $"{member.MemberId},{member.Name},{this.CheckoutDate}, {this.DueDate}";
+        string data = $"{member._memberId},{member._name},{this.CheckoutDate}, {this.DueDate}";
         File.AppendAllText("CheckoutData.csv", data );
     }
 }
