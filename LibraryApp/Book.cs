@@ -61,7 +61,7 @@ public class Book
         DateTime dueDate = DateTime.Parse(dueDateString);
         returnedDate = System.DateTime.Now;
 
-        if ( returnedDate > dueDate)
+        if (returnedDate > dueDate)
         {
             isOverdue = true;
         }
@@ -79,6 +79,6 @@ public class Book
     {
         // Writes the memeber info connecting to the book they cheked out to a csv file
         string data = $"{member._memberId},{member._name},{this.CheckoutDate}, {this.DueDate}";
-        File.AppendAllText("CheckoutData.csv", data );
+        File.AppendAllText("CheckoutData.csv", data);
     }
 }

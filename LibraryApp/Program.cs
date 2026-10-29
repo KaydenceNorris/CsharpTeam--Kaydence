@@ -8,8 +8,8 @@ public class Program
         {
             int memebrId = 1;
             List<Book> testBookList = new List<Book>();
-            Member testMember = new Member("Test",memebrId,testBookList);
-           
+            Member testMember = new Member("Test", memebrId, testBookList);
+
             ;
             var catalog = new Catalog();
 

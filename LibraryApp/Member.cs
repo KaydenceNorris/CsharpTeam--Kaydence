@@ -7,7 +7,7 @@ namespace LibraryApp
     public class Member
     {
         // Private variables
-        public string _name ="";
+        public string _name = "";
         public int _memberId = 0;
         public List<Book> _checkedOutBooks = new List<Book>();
 
@@ -31,7 +31,7 @@ namespace LibraryApp
                     throw new ArgumentException("MemberId cannot be empty", nameof(memberId));
 
                 // Assigning constructor values to public variables
-                
+
                 _name = name ?? throw new ArgumentNullException(nameof(name));
                 _memberId = memberId;
                 _checkedOutBooks = checkedOutBooks ?? throw new ArgumentNullException(nameof(name));
