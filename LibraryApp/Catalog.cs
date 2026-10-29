@@ -55,14 +55,14 @@ public class Catalog
         if (member is null)
             throw new ArgumentNullException(nameof(member));
 
-        if (_members.Any(m => m.MemberId == member.MemberId))
-            throw new InvalidOperationException($"A member with ID '{member.MemberId}' already exists in the catalog.");
+        if (_members.Any(m => m._memberId == member._memberId))
+            throw new InvalidOperationException($"A member with ID '{member._memberId}' already exists in the catalog.");
 
         _members.Add(member);
     }
     public Member? FindMemberById(int memberId)
     {
-        return _members.FirstOrDefault(m => m.MemberId == memberId);
+        return _members.FirstOrDefault(m => m._memberId == memberId);
     }
     public List<Member> SearchMembersByName(string nameQuery)
     {
@@ -70,7 +70,7 @@ public class Catalog
             return new List<Member>();
 
         return _members
-            .Where(m => m.Name.Contains(nameQuery, StringComparison.OrdinalIgnoreCase))
+            .Where(m => m._name.Contains(nameQuery, StringComparison.OrdinalIgnoreCase))
             .ToList();
     }
 
@@ -96,7 +96,7 @@ public class Catalog
             throw new InvalidOperationException($"No member found with the ID of '{memberId}'.");
 
         book.Return();
-        member.Return(book);
+        //member.Return(book);
 
     }
 
