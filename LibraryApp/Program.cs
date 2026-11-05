@@ -1,82 +1,83 @@
-namespace LibraryApp;
-
-public class Program
+namespace LibraryApp
 {
-    public static void Main()
+    public class Program
     {
-        try
+        public static void Main()
         {
-            int memebrId = 1;
-            List<Book> testBookList = new List<Book>();
-            Member testMember = new Member("Test", memebrId, testBookList);
-
-            ;
-            var catalog = new Catalog();
-
-            catalog.AddBook(new Book("The Pragmatic Programmer", "David Thomas", "9780135957059", 3));
-            catalog.AddBook(new Book("Clean Code", "Robert C. Martin", "9780132350884", 2));
-            catalog.AddBook(new Book("The DevOps Handbook", "Gene Kim", "9781942788003", 1));
-
-            Console.WriteLine("=== Library Catalog ===");
-            foreach (var book in catalog.Books)
+            try
             {
-                Console.WriteLine($"{book.Title} by {book.Author} \u2014 {book.AvailableCopies}/{book.TotalCopies} available");
-            }
-            Console.WriteLine();
-            while (true)
-            {
-                Console.WriteLine("Please choose an option:\n1. Checkout book\n2.Return Book \n4. Exit");
-                string userChoice = Console.ReadLine() ?? string.Empty;
+                int memebrId = 1;
+                List<Book> testBookList = [];
+                Member testMember = new("Test", memebrId, testBookList);
 
-                if (userChoice == "1")
-                {
-                    Console.WriteLine("\nEnter the title of the book you would like to check out:");
-                    foreach (var book in catalog.Books)
-                    {
-                        Console.WriteLine($"{book.Title}");
-                    }
-                    string bookTitle = Console.ReadLine() ?? string.Empty;
+                ;
+                Catalog catalog = new();
 
-                    foreach (var book in catalog.Books)
+                catalog.AddBook(new Book("The Pragmatic Programmer", "David Thomas", "9780135957059", 3));
+                catalog.AddBook(new Book("Clean Code", "Robert C. Martin", "9780132350884", 2));
+                catalog.AddBook(new Book("The DevOps Handbook", "Gene Kim", "9781942788003", 1));
+
+                Console.WriteLine("=== Library Catalog ===");
+                foreach (Book book in catalog.Books)
+                {
+                    Console.WriteLine($"{book.Title} by {book.Author} \u2014 {book.AvailableCopies}/{book.TotalCopies} available");
+                }
+                Console.WriteLine();
+                while (true)
+                {
+                    Console.WriteLine("Please choose an option:\n1. Checkout book\n2.Return Book \n4. Exit");
+                    string userChoice = Console.ReadLine() ?? string.Empty;
+
+                    if (userChoice == "1")
                     {
-                        if (bookTitle == book.Title)
+                        Console.WriteLine("\nEnter the title of the book you would like to check out:");
+                        foreach (Book book in catalog.Books)
                         {
-                            book.CheckOut(testMember);
-                            Console.WriteLine($"Book has been checked out: {book.AvailableCopies} copies left");
+                            Console.WriteLine($"{book.Title}");
                         }
-                    }
-                    Console.ReadLine();
-                    Console.Clear();
-                }
-                else if (userChoice == "2")
-                {
-                    Console.WriteLine("\nEnter the title of the book you would like to Return:");
-                    foreach (var book in catalog.Books)
-                    {
-                        Console.WriteLine($"{book.Title}");
-                    }
-                    string bookReturned = Console.ReadLine() ?? string.Empty;
-                    foreach (var book in catalog.Books)
-                    {
-                        if (bookReturned == book.Title)
+                        string bookTitle = Console.ReadLine() ?? string.Empty;
+
+                        foreach (Book book in catalog.Books)
                         {
-                            book.Return();
-                            Console.WriteLine($"\nBook returned: {book.AvailableCopies} copies");
+                            if (bookTitle == book.Title)
+                            {
+                                book.CheckOut(testMember);
+                                Console.WriteLine($"Book has been checked out: {book.AvailableCopies} copies left");
+                            }
                         }
+                        string? v = Console.ReadLine();
+                        Console.Clear();
                     }
-                    Console.ReadLine();
-                    Console.Clear();
-                }
-                else if (userChoice == "3")
-                {
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Error: Invalid Input");
+                    else if (userChoice == "2")
+                    {
+                        Console.WriteLine("\nEnter the title of the book you would like to Return:");
+                        foreach (Book book in catalog.Books)
+                        {
+                            Console.WriteLine($"{book.Title}");
+                        }
+                        string bookReturned = Console.ReadLine() ?? string.Empty;
+                        foreach (Book book in catalog.Books)
+                        {
+                            if (bookReturned == book.Title)
+                            {
+                                book.Return();
+                                Console.WriteLine($"\nBook returned: {book.AvailableCopies} copies");
+                            }
+                        }
+                        string? v = Console.ReadLine();
+                        Console.Clear();
+                    }
+                    else if (userChoice == "3")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: Invalid Input");
+                    }
                 }
             }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
-        catch (Exception ex) { Console.WriteLine(ex.Message); }
     }
 }

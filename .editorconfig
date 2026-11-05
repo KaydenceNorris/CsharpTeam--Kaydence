@@ -34,6 +34,13 @@ dotnet_diagnostic.IDE0051.severity = warning  # unused private member
 dotnet_diagnostic.IDE0052.severity = warning  # unread private member
 dotnet_diagnostic.IDE0060.severity = warning  # unused parameter
 
+# Treat all Style category diagnostics as errors
+[*.cs]
+dotnet_analyzer_diagnostic.category-Style.severity = error
+
+# Or target specific diagnostic codes (e.g., IDE0055 for formatting)
+dotnet_diagnostic.IDE0055.severity = error
+
 [*.{json,yml,yaml}]
 indent_size = 2
 
