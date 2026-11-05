@@ -6,10 +6,10 @@ namespace LibraryApp;
 /// </summary>
 public class Book
 {
-    public string Title { get; }
-    public string Author { get; }
-    public string Isbn { get; }
-    public int TotalCopies { get; }
+    public string Title { get; set; }
+    public string Author { get; set; }
+    public string Isbn { get; set; }
+    public int TotalCopies { get; set; }
     public int AvailableCopies { get; private set; }
     public DateTime CheckoutDate { get; set; }
     public DateTime DueDate { get; set; }
@@ -71,6 +71,25 @@ public class Book
     {
         if (AvailableCopies >= TotalCopies)
             throw new InvalidOperationException($"All copies of '{Title}' are already returned.");
+        // before adding copies, check to see if there are any reserved members, if so, give the book to the first member in the list and remove them from the reserved list
+        if (ReservedMembers.Count > 0)
+        {
+            var member = ReservedMembers[0];
+            member.CheckedOutBooks.Add(this);
+            ReservedMembers.RemoveAt(0);
+            ReservedHistory.Add(member);
+        }
+        else AvailableCopies++;
+    }
+
+    // Reserve a book for a member, checks to see if it's already been reserved by the member or if the member has it currently reserved
+    public void Reserve(Member member)
+    {
+        if (member is null)
+            throw new ArgumentNullException(nameof(member));
+        if (!ReservedMembers.Contains(member) && !ReservedHistory.Contains(member))
+            ReservedMembers.Add(member);
+    }
 
         AvailableCopies++;
         CalculateOverDue();
