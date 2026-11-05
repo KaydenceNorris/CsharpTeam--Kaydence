@@ -70,7 +70,9 @@ public class Book
     public void Return()
     {
         if (AvailableCopies >= TotalCopies)
+        {
             throw new InvalidOperationException($"All copies of '{Title}' are already returned.");
+        }
 
         //AvailableCopies++;
         CalculateOverDue();
