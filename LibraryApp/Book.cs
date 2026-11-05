@@ -72,7 +72,7 @@ public class Book
         if (AvailableCopies >= TotalCopies)
             throw new InvalidOperationException($"All copies of '{Title}' are already returned.");
 
-        AvailableCopies++;
+        //AvailableCopies++;
         CalculateOverDue();
     }
     public void WriteCSV(Member member)
