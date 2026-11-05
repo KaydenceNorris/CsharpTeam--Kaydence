@@ -16,7 +16,7 @@ namespace LibraryApp.Tests
         public void CheckOut_ReducesAvailableCopiesByOne()
         {
             // Arrange
-            var book = new Book("Sample Title", "Sample Author", "0000000000000", 3);
+            Book book = new("Sample Title", "Sample Author", "0000000000000", 3);
 
             // Act
             //book.CheckOut();

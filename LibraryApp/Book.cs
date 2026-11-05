@@ -20,18 +20,29 @@ namespace LibraryApp
         public Book(string title, string author, string isbn, int totalCopies)
         {
             if (string.IsNullOrWhiteSpace(title))
+            {
                 throw new ArgumentException("Title cannot be empty.", nameof(title));
+            }
+
             if (string.IsNullOrWhiteSpace(author))
+            {
                 throw new ArgumentException("Author cannot be empty.", nameof(author));
+            }
+
             if (string.IsNullOrWhiteSpace(isbn))
+            {
                 throw new ArgumentException("ISBN cannot be empty.", nameof(isbn));
+            }
+
             if (totalCopies < 0)
+            {
                 throw new ArgumentException("Total copies cannot be negative.", nameof(totalCopies));
+            }
 
             // sets the checkout date to today
-            CheckoutDate = System.DateTime.Today;
+            CheckoutDate = DateTime.Today;
             // sets the duedate to 2 weeks in the future
-            DueDate = System.DateTime.Today.AddDays(14);
+            DueDate = DateTime.Today.AddDays(14);
 
             Title = title;
             Author = author;
@@ -44,13 +55,12 @@ namespace LibraryApp
 
         public void CheckOut(Member member)
         {
-            // Adds book to memebrs list of checked out books
-            member._checkedOutBooks.Add(this);
             if (!IsAvailable)
             {
                 throw new InvalidOperationException($"No available copies of '{Title}' to check out.");
             }
 
+            member.CheckOut(this);
             AvailableCopies--;
             WriteCSV(member);
 
@@ -76,13 +86,14 @@ namespace LibraryApp
                 throw new InvalidOperationException($"All copies of '{Title}' are already returned.");
             }
 
-            //AvailableCopies++;
-            CalculateOverDue();
+            AvailableCopies++;
+            returnedDate = DateTime.Now;
+            isOverdue = returnedDate > DueDate;
         }
         public void WriteCSV(Member member)
         {
             // Writes the memeber info connecting to the book they cheked out to a csv file
-            string data = $"{member._memberId},{member._name},{this.CheckoutDate}, {this.DueDate}";
+            string data = $"{member._memberId},{member._name},{CheckoutDate}, {DueDate}";
             File.AppendAllText("CheckoutData.csv", data);
         }
     }

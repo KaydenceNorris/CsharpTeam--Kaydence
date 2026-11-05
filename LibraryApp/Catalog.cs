@@ -7,8 +7,8 @@ namespace LibraryApp
     /// </summary>
     public class Catalog
     {
-        private readonly List<Book> _books = new();
-        private readonly List<Member> _members = new();
+        private readonly List<Book> _books = [];
+        private readonly List<Member> _members = [];
 
         public IReadOnlyList<Book> Books => _books.AsReadOnly();
         public IReadOnlyList<Member> Members => _members.AsReadOnly();
@@ -16,10 +16,14 @@ namespace LibraryApp
         public void AddBook(Book book)
         {
             if (book is null)
+            {
                 throw new ArgumentNullException(nameof(book));
+            }
 
             if (_books.Any(b => b.Isbn == book.Isbn))
+            {
                 throw new InvalidOperationException($"A book with ISBN '{book.Isbn}' already exists in the catalog.");
+            }
 
             _books.Add(book);
         }
@@ -31,32 +35,30 @@ namespace LibraryApp
 
         public List<Book> SearchByTitle(string titleQuery)
         {
-            if (string.IsNullOrWhiteSpace(titleQuery))
-                return new List<Book>();
-
-            return _books
-                .Where(b => b.Title.Contains(titleQuery, StringComparison.OrdinalIgnoreCase))
-                .ToList();
+            return string.IsNullOrWhiteSpace(titleQuery)
+                ? new List<Book>()
+                : [.. _books.Where(b => b.Title.Contains(titleQuery, StringComparison.OrdinalIgnoreCase))];
         }
 
         public List<Book> SearchByAuthor(string authorQuery)
         {
-            if (string.IsNullOrWhiteSpace(authorQuery))
-                return new List<Book>();
-
-            return _books
-                .Where(b => b.Author.Contains(authorQuery, StringComparison.OrdinalIgnoreCase))
-                .ToList();
+            return string.IsNullOrWhiteSpace(authorQuery)
+                ? []
+                : [.. _books.Where(b => b.Author.Contains(authorQuery, StringComparison.OrdinalIgnoreCase))];
         }
 
         // Member functions - primarily mirrors the book functions, but for members
         public void AddMember(Member member)
         {
             if (member is null)
+            {
                 throw new ArgumentNullException(nameof(member));
+            }
 
             if (_members.Any(m => m._memberId == member._memberId))
+            {
                 throw new InvalidOperationException($"A member with ID '{member._memberId}' already exists in the catalog.");
+            }
 
             _members.Add(member);
         }
@@ -66,38 +68,30 @@ namespace LibraryApp
         }
         public List<Member> SearchMembersByName(string nameQuery)
         {
-            if (string.IsNullOrWhiteSpace(nameQuery))
-                return new List<Member>();
-
-            return _members
-                .Where(m => m._name.Contains(nameQuery, StringComparison.OrdinalIgnoreCase))
-                .ToList();
+            return string.IsNullOrWhiteSpace(nameQuery)
+                ? []
+                : [.. _members.Where(m => m._name.Contains(nameQuery, StringComparison.OrdinalIgnoreCase))];
         }
 
         public void CheckOutBook(string isbn, int memberId)
         {
-            var book = FindByIsbn(isbn);
-            if (book is null)
-                throw new InvalidOperationException($"No book found with ISBN '{isbn}'.");
-            var member = FindMemberById(memberId);
-            if (member is null)
-                throw new InvalidOperationException($"No member found with the ID of '{memberId}'.");
+            Book book = FindByIsbn(isbn)
+                ?? throw new InvalidOperationException($"No book found with ISBN '{isbn}'.");
+            Member member = FindMemberById(memberId) ?? throw new InvalidOperationException($"No member found with the ID of '{memberId}'.");
 
-            //book.CheckOut();
+            book.CheckOut(member);
         }
 
         public void ReturnBook(string isbn, int memberId)
         {
-            var book = FindByIsbn(isbn);
-            if (book is null)
-                throw new InvalidOperationException($"No book found with ISBN '{isbn}'.");
-            var member = FindMemberById(memberId);
-            if (member is null)
-                throw new InvalidOperationException($"No member found with the ID of '{memberId}'.");
+            Book book = FindByIsbn(isbn) ?? throw new InvalidOperationException($"No book found with ISBN '{isbn}'.");
+            Member member = FindMemberById(memberId) ?? throw new InvalidOperationException($"No member found with the ID of '{memberId}'.");
+            if (!member._checkedOutBooks.Remove(book))
+            {
+                throw new InvalidOperationException($"Member '{memberId}' has not checked out the book with ISBN '{isbn}'.");
+            }
 
             book.Return();
-            //member.Return(book);
-
         }
 
         public int TotalAvailableCopies()

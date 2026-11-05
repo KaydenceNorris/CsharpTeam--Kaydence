@@ -8,7 +8,7 @@ namespace LibraryApp
         // Private variables
         public string _name = "";
         public int _memberId = 0;
-        public List<Book> _checkedOutBooks = new List<Book>();
+        public List<Book> _checkedOutBooks = [];
 
         // Public variables
         //public required string Name { get { return _name; } set { _name = value; } }
@@ -25,9 +25,14 @@ namespace LibraryApp
             {
                 // Invalid input handling
                 if (string.IsNullOrWhiteSpace(name))
+                {
                     throw new ArgumentException("Name cannot be empty.", nameof(name));
+                }
+
                 if (string.IsNullOrWhiteSpace(memberId.ToString()))
+                {
                     throw new ArgumentException("MemberId cannot be empty", nameof(memberId));
+                }
 
                 // Assigning constructor values to public variables
 
@@ -51,9 +56,14 @@ namespace LibraryApp
         {
             // Invalid checkout handling
             if (!book.IsAvailable)
+            {
                 throw new InvalidOperationException($"No available copies of '{book.Title}' to check out.");
+            }
+
             if (_checkedOutBooks.Count > 5)
+            {
                 throw new InvalidOperationException($"Member '{_name}' has checked out the max amount of books");
+            }
 
             // Add book to List
             _checkedOutBooks.Add(book);
