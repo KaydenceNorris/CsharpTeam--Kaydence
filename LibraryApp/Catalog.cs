@@ -84,6 +84,8 @@ public class Catalog
             throw new InvalidOperationException($"No member found with the ID of '{memberId}'.");
 
         //book.CheckOut();
+        member.CheckOut(book);
+        book.CheckOut();
     }
 
     public void ReturnBook(string isbn, int memberId)
@@ -98,6 +100,8 @@ public class Catalog
         book.Return();
         //member.Return(book);
 
+        member.Return(book);
+        book.Return();
     }
 
     public int TotalAvailableCopies()
