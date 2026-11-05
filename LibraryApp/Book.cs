@@ -1,10 +1,14 @@
 namespace LibraryApp
 {
-    /// <summary>
-    /// Represents a single book title in the library catalog.
-    /// One Book instance represents all copies of that title.
-    /// </summary>
-    public class Book
+    public string Title { get; set; }
+    public string Author { get; set; }
+    public string Isbn { get; set; }
+    public int TotalCopies { get; set; }
+    public int AvailableCopies { get; private set; }
+    public List<Member> ReservedMembers { get; set; } = new();
+    public List<Member> ReservedHistory { get; set; } = new();
+
+    public Book(string title, string author, string isbn, int totalCopies)
     {
         public string Title { get; }
         public string Author { get; }
@@ -40,50 +44,61 @@ namespace LibraryApp
             AvailableCopies = totalCopies;
         }
 
-        public bool IsAvailable => AvailableCopies > 0;
-
-        public void CheckOut(Member member)
+    public void Return(Member member)
+    {
+        if (AvailableCopies >= TotalCopies)
+            throw new InvalidOperationException($"All copies of '{Title}' are already returned.");
+        // before adding copies, check to see if there are any reserved members, if so, give the book to the first member in the list and remove them from the reserved list
+        if (member.CheckedOutBooks.Contains(this))
         {
-            // Adds book to memebrs list of checked out books
-            member._checkedOutBooks.Add(this);
-            if (!IsAvailable)
+            if (ReservedMembers.Count > 0)
             {
-                throw new InvalidOperationException($"No available copies of '{Title}' to check out.");
+                var reservedMember = ReservedMembers[0];
+                reservedMember.CheckedOutBooks.Add(this);
+                ReservedMembers.RemoveAt(0);
+                ReservedHistory.Add(reservedMember);
             }
-
-            AvailableCopies--;
-            WriteCSV(member);
-
+            else AvailableCopies++;
+            Console.WriteLine($"Successfully returned {Title}.");
         }
-        public void CalculateOverDue()
+        else
         {
-            string[] line = File.ReadAllLines("CheckoutData.csv");
-            string[] info = line[0].Split(',');
-            string dueDateString = info[3].Trim();
-            DateTime dueDate = DateTime.Parse(dueDateString);
-            returnedDate = DateTime.Now;
-
-            if (returnedDate > dueDate)
-            {
-                isOverdue = true;
-            }
+            throw new InvalidOperationException($"{member.Name} does not currently have {Title} checked out.");
         }
+    }
 
-        public void Return()
+    // Reserve a book for a member, checks to see if it's already been reserved by the member or if the member has it currently reserved
+    public void Reserve(Member member)
+    {
+        if (member is null)
+            throw new ArgumentNullException(nameof(member));
+        if (AvailableCopies != 0)
+            throw new InvalidOperationException($"Their is currently an available copy of {Title}, please check out the book instead.");
+        if (member.CheckedOutBooks.Contains(this))
+            throw new InvalidOperationException($"Member '{member.Name}' has already checked out the book '{Title}'.");
+        else if (!ReservedMembers.Contains(member) && !ReservedHistory.Contains(member))
         {
-            if (AvailableCopies >= TotalCopies)
-            {
-                throw new InvalidOperationException($"All copies of '{Title}' are already returned.");
-            }
+            ReservedMembers.Add(member);
+            Console.WriteLine($"Successfully checked out {Title} to {member.Name}");
+        }
+    }
 
-            //AvailableCopies++;
-            CalculateOverDue();
-        }
-        public void WriteCSV(Member member)
-        {
-            // Writes the memeber info connecting to the book they cheked out to a csv file
-            string data = $"{member._memberId},{member._name},{this.CheckoutDate}, {this.DueDate}";
-            File.AppendAllText("CheckoutData.csv", data);
-        }
+    // removes member from list of reservedmembers
+    public void CancelReservation(Member member)
+    {
+        if (member is null)
+            throw new ArgumentNullException(nameof(member));
+        ReservedMembers.Remove(member);
+    }
+
+    // checks to see if a member has reserved the book in the past, check this before letting this reserve a book, a user can't reserve a book they've already reserved
+    public bool WasReservedBy(Member member)
+    {
+        if (member is null)
+            throw new ArgumentNullException(nameof(member));
+        if (ReservedHistory.Contains(member))
+            return true;
+        else
+            return false;
     }
 }
